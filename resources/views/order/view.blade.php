@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8">
+         <div class="col-md-8">
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -24,7 +24,7 @@
                 @foreach($order->orderItems as $item)
                     <tr>
                         <td>{{$item->product->title}}</td>
-                        <td><a href="/download/{{$order->id}}/{{$item->file->filename}}"> {{$item->product->image}}</a></td>
+                        <td><a href="/download/{{$order->id}}/"> {{$item->product->image}}</a></td>
                         <td>$ {{number_format($item->product->price,2,',','')}}</td>
                     </tr>
                 @endforeach

@@ -65,8 +65,7 @@ class OrderController extends Controller
     }
  
     public function viewOrder($orderId){
-        $order = Order::find($orderId);
-        //$order = Order::all();
+        $order = Order::find($orderId)->first();
         return view('order.view',['order'=>$order]);
     }
     public  function download($orderId,$filename){
