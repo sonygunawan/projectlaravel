@@ -23,8 +23,8 @@
                 </thead>
                 @foreach($order->orderItems as $item)
                     <tr>
-                        <td>{{$item->product->name}}</td>
-                        <td><a href="/download/{{$order->id}}/{{$item->file->filename}}"> {{$item->file->filename}}</a></td>
+                        <td>{{$item->product->title}}</td>
+                        <td><a href="/download/{{$order->id}}/{{$item->file->filename}}"> {{$item->product->image}}</a></td>
                         <td>$ {{number_format($item->product->price,2,',','')}}</td>
                     </tr>
                 @endforeach

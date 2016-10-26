@@ -63,7 +63,7 @@
                         <script 
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_IWWaPCgv0kOdDPOvPQwHFZIL"
-                                    data-amount="{{$total}}"
+                                    data-amount="{{$total*100}}"
                                     data-name="Laravel Cart"
                                     data-description="Products"
                                     data-locale="auto">

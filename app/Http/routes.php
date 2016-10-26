@@ -40,3 +40,4 @@ Route::post('/checkout', 'OrderController@checkout');
 Route::get('order/{orderId}', 'OrderController@viewOrder');
 Route::get('order', 'OrderController@index');
 Route::get('download/{orderId}/{filename}', 'OrderController@download');
+

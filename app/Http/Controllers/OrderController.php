@@ -1,4 +1,3 @@
-
 <?php
  
 namespace App\Http\Controllers;
@@ -67,6 +66,7 @@ class OrderController extends Controller
  
     public function viewOrder($orderId){
         $order = Order::find($orderId);
+        //$order = Order::all();
         return view('order.view',['order'=>$order]);
     }
     public  function download($orderId,$filename){
