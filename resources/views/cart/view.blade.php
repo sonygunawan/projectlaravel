@@ -58,23 +58,24 @@
                         <!-- <button type="button" class="btn btn-success">
                             Checkout <span class="fa fa-play"></span>
                         </button></td> -->
+                        <form action="/checkout" method="POST">
                         {!! csrf_field() !!}
-                        <script type="text/javascript">
+                        <script 
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                                     data-key="pk_test_IWWaPCgv0kOdDPOvPQwHFZIL"
                                     data-amount="{{$total}}"
                                     data-name="Laravel Cart"
                                     data-description="Products"
-                                    data-image="/128x128.png"
-                                    data-locale="auto"
+                                    data-locale="auto">
                         </script>
-                                
-                        <a href="/checkout">     
-                            <button type="submit" class="btn btn-success stripe-button" 
+                                <!-- 
+                        <a href="{{ url('/checkout') }}">     
+                            <button class="btn btn-success stripe-button" 
                             >
                                 Pay with <span class="fa fa-play"></span>
                             </button>
-                        </a>
+                        </a> -->
+                        </form>
                     </td>
                 </tr>
                 </tbody>
