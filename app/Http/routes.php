@@ -41,8 +41,9 @@ Route::get('order/{orderId}', 'OrderController@viewOrder');
 Route::get('order', 'OrderController@index');
 Route::get('download/{orderId}/{filename}', 'OrderController@download');
 
-Route::get('api/products', function(){
-	return App\Product::all();
+Route::get('api/products2', function(){
+ 	return App\Product::all();
 });
+Route::get('api/products', 'ProductController@search');
 //Route::get('/product', 'ProductController@search');
 //Route::post('/product', 'ProductController@search');
