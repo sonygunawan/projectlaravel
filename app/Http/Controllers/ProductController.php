@@ -17,7 +17,7 @@ class ProductController extends Controller
 		return view('product',['products' => $posts]);
         // $products = Product::all();
         // return view('product',['products' => $products]);
- 
+ 		//return view('product',['products' => Product::all()->paginate(20)]);
     }
     public function search(Request $request)
     {

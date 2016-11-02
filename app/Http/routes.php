@@ -42,7 +42,22 @@ Route::get('order', 'OrderController@index');
 Route::get('download/{orderId}/{filename}', 'OrderController@download');
 
 Route::get('api/products2', function(){
- 	return App\Product::all();
+ 	//return App\Product::all();
+ 	$results =  App\Product::latest()->paginate(10);
+
+    $response = [
+        'pagination' => [
+            'total' => $results->total(),
+            'per_page' => $results->perPage(),
+            'current_page' => $results->currentPage(),
+            'last_page' => $results->lastPage(),
+            'from' => $results->firstItem(),
+            'to' => $results->lastItem()
+        ],
+        'data' => $results
+    ];
+    
+    return $response;
 });
 Route::get('api/products', 'ProductController@search');
 //Route::get('/product', 'ProductController@search');
