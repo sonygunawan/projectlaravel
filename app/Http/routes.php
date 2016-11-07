@@ -43,7 +43,17 @@ Route::get('download/{orderId}/{filename}', 'OrderController@download');
 
 Route::get('api/products2', function(){
  	//return App\Product::all();
- 	$results =  App\Product::latest()->paginate(10);
+    // if ($request->get('q') != '')
+    // {
+    //     $results = App\Product::where('title','like', '%'. $request->get('q'). '%')
+    //              ->orWhere('description', 'like', '%' .$request->get('q'). '%')->paginate(10);
+    //     // $posts = Product::where('title','like', '%'. $request->get('q'). '%')
+    //     //         ->orWhere('description', 'like', '%' .$request->get('q'). '%')->get();
+    // }
+    // else
+    // {
+     	$results =  App\Product::latest()->paginate(10);
+    //}
 
     $response = [
         'pagination' => [

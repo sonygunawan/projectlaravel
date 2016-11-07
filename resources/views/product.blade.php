@@ -13,7 +13,7 @@
                     <input type="text" placeholder="Search Product..." class="form-control" v-model="query" >
                 </div>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" @click="handleIt()" v-if="!loading">Search!</button>
+                    <button class="btn btn-default" type="button" @click="handleIt(page)" v-if="!loading">Search!</button>
                     <button class="btn btn-default" type="button" disabled="disabled" v-if="loading">Searching...</button>
                     <!--type="button" click="search()"  -->
                 </span>
@@ -29,7 +29,7 @@
         <div class="col-md-12" >
                 <!-- foreach ($products as $product) -->
  
-                    <div class="col-sm-6 col-md-4" v-for="product in products">
+                    <div class="col-sm-6 col-md-4" v-for="product in products | filterBy query in 'title'">
                         <div class="thumbnail" >
                             <img src="" class="img-responsive">
                             <div class="caption">
@@ -97,7 +97,11 @@
             data: 
                 {
                     pagination: {
-                        
+                        total: 0,
+                        per_page: 10,
+                        from: 1,
+                        to: 0,
+                        current_page: 1
                     },
                     offset: 4,// left and right padding from the pagination <span>,just change it to see effects
                     products: [],
@@ -140,6 +144,7 @@
 
                     //alert('page='+JSON.stringify(data));
                     //alert('query='+this.query);
+                    //alert('page='+this.page);
                     // Clear the error message.
                     this.error = '';
                     // Empty the products array so we can fill it with the new products.
@@ -150,10 +155,12 @@
                     //alert(this.query);
                     if(this.query != '')
                     {
-                        this.$http.get('/api/products?q=' + this.query).then((response) => {
+                        this.$http.get('/api/products2?page='+page).then((response) => {
                             
                             // If there was an error set the error message, if not fill the products array.
-                            response.body.error ? this.error = response.body.error : this.products = response.body;
+                            //response.body.error ? this.error = response.body.error : this.products = response.body;
+                            this.products = response.data.data.data;
+                            this.pagination = response.data.pagination;
                             // The request is finished, change the loading to false again.
                             this.loading = false;
                             // Clear the query.
@@ -167,13 +174,13 @@
                     {
 
                         var data = {page: page};
-                        alert(data);
-                        this.$http.get('/api/products2', data).then(function (response) {
-                            //this.products = response.data.data.data;
-                            //this.pagination = response.data.pagination;
+                        //alert(JSON.stringify(data));
+                        this.$http.get('/api/products2?page='+page, data).then(function (response) {
+                            this.products = response.data.data.data;
+                            this.pagination = response.data.pagination;
                             //look into the routes file and format your response
-                            this.$set('products', response.data.data.data);
-                            this.$set('pagination', response.data.pagination);
+                            //this.$set('products', response.data.data.data);
+                            //this.$set('pagination', response.data.pagination);
                             this.loading = false;
                         }, function (error) {
                             // handle error
@@ -184,7 +191,7 @@
                     }
                     
                     
-                    // alert('test');
+                     //alert('test');
                     // e.preventDefault();
                 },
                 changePage: function (page) {
