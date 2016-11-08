@@ -69,6 +69,15 @@ Route::get('api/products2', function(){
     
     return $response;
 });
+
+Route::get('api/products3', function(){
+ 	$results = App\Product::all();
+ 	$response = [
+        'data' => $results
+    ];
+    
+    return $response;
+});
 Route::get('api/products', 'ProductController@search');
 //Route::get('/product', 'ProductController@search');
 //Route::post('/product', 'ProductController@search');

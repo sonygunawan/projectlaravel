@@ -29,7 +29,7 @@
         <div class="col-md-12" >
                 <!-- foreach ($products as $product) -->
  
-                    <div class="col-sm-6 col-md-4" v-for="product in products | filterBy query in 'title'">
+                    <div class="col-sm-6 col-md-4" v-for="product in products | filterBy query in 'title' 'description' | paginate">
                         <div class="thumbnail" >
                             <img src="" class="img-responsive">
                             <div class="caption">
@@ -54,7 +54,12 @@
             </div>
             
     </div>
-    <div class="row">
+    <ul>
+    <li v-for="pageNumber in totalPages">
+      <a href="#" @click="setPage(pageNumber)" >@{{ pageNumber+1 }}</a>
+    </li>
+</ul>
+    <!-- <div class="row">
         <nav>
                 <ul class="pagination">
                     <li v-if="pagination.current_page > 1">
@@ -76,7 +81,7 @@
                     </li>
                 </ul>
             </nav>
-    </div>
+    </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
@@ -87,7 +92,7 @@
             props: ['products'],
 
             created() {
-                this.products = JSON.parse(this.products);
+                alert('created');
             }
 
         });
@@ -107,11 +112,16 @@
                     products: [],
                     loading: false,
                     error: false,
-                    query: ''
+                    query: '',
+                    currentPage: 0,
+                    itemsPerPage: 10,
+                    resultCount: 0
                 },
             ready: function () {
-                //this.handleIt(this.pagination.current_page)
-                this.handleIt(this.pagination.current_page);
+                
+                //this.handleIt(this.pagination.current_page);
+                this.initiateProduct();
+                alert('ready');
             },
             computed: {
                 isActived: function () {
@@ -137,9 +147,20 @@
 //alert(pagesArray);
                     return pagesArray;
 
+                },
+                totalPages: function() {
+                  console.log(Math.ceil(this.resultCount / this.itemsPerPage) + " totalPages");
+                  return Math.ceil(this.resultCount / this.itemsPerPage);
+
                 }
             },
             methods: {
+                initiateProduct: function() {
+                    this.$http.get('/api/products3').then((response) => {
+                            this.products = response.data.data;
+                            //this.pagination = response.data.pagination;
+                        });
+                },
                 handleIt: function(page) {
 
                     //alert('page='+JSON.stringify(data));
@@ -197,9 +218,24 @@
                 changePage: function (page) {
                     this.pagination.current_page = page;
                     this.handleIt(page);
-                }   
+                },
+                setPage: function(pageNumber) {
+                  this.currentPage = pageNumber;
+                  console.log(pageNumber);
+
+                }
             },
-            
+            filters: {
+              paginate: function(list) {
+                    this.resultCount = list.length;
+                    if (this.currentPage >= this.totalPages) {
+                      this.currentPage = Math.max(0, this.totalPages - 1);
+                    }
+                    var index = this.currentPage * this.itemsPerPage;
+
+                    return list.slice(index, index + this.itemsPerPage);
+                }
+            } 
         });
 
    
