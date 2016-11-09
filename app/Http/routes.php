@@ -79,5 +79,8 @@ Route::get('api/products3', function(){
     return $response;
 });
 Route::get('api/products', 'ProductController@search');
-//Route::get('/product', 'ProductController@search');
-//Route::post('/product', 'ProductController@search');
+
+Route::get('/admin/product/new', 'ProductAdminController@newProduct');
+Route::get('/admin/products', 'ProductAdminController@index');
+Route::get('/admin/product/destroy/{id}', 'ProductAdminController@destroy');
+Route::post('/admin/product/save', 'ProductAdminController@add');

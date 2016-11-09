@@ -11,4 +11,9 @@ class Product extends Model
     // we only want these 3 attributes able to be filled
     protected $fillable = array('id','title', 'image', 'price','description');
 	protected $table = 'products';
+
+	public function file()
+    {
+        return $this->belongsTo('App\File');
+    }
 }
