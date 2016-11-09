@@ -24,7 +24,31 @@
     <div class="container">
         <products list="$products"></products>
     </div>
-
+    <div class="row">
+        <div class="col-md-12" >
+            <nav>
+                <ul class="pagination">
+                    <li v-if="currentPage > 1">
+                        <a href="#" aria-label="Previous"
+                           @click="setPage(currentPage - 1)">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li v-for="page in totalPages"
+                        v-bind:class="[ page == isActived ? 'active' : '']">
+                        <a href="#"
+                           @click="setPage(page)">@{{ page +1 }}</a>
+                    </li>
+                    <li v-if="currentPage < totalPages">
+                        <a href="#" aria-label="Next"
+                           @click="setPage(currentPage + 1)">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12" >
                 <!-- foreach ($products as $product) -->
@@ -55,33 +79,33 @@
             
     </div>
     <ul>
-    <li v-for="pageNumber in totalPages">
+    <!-- <li v-for="pageNumber in totalPages">
       <a href="#" @click="setPage(pageNumber)" >@{{ pageNumber+1 }}</a>
     </li>
-</ul>
-    <!-- <div class="row">
+</ul> -->
+     <div class="row">
         <nav>
                 <ul class="pagination">
-                    <li v-if="pagination.current_page > 1">
+                    <li v-if="currentPage > 1">
                         <a href="#" aria-label="Previous"
-                           @click="changePage(pagination.current_page - 1)">
+                           @click="setPage(currentPage - 1)">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li v-for="page in pagesNumber"
+                    <li v-for="page in totalPages"
                         v-bind:class="[ page == isActived ? 'active' : '']">
                         <a href="#"
-                           @click="changePage(page)">@{{ page }}</a>
+                           @click="setPage(page)">@{{ page +1 }}</a>
                     </li>
-                    <li v-if="pagination.current_page < pagination.last_page">
+                    <li v-if="currentPage < totalPages">
                         <a href="#" aria-label="Next"
-                           @click="changePage(pagination.current_page + 1)">
+                           @click="setPage(currentPage + 1)">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
                 </ul>
             </nav>
-    </div> -->
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
@@ -125,7 +149,7 @@
             },
             computed: {
                 isActived: function () {
-                    return this.pagination.current_page;
+                    return this.currentPage;
                 },
                 pagesNumber: function () {
                     if (!this.pagination.to) {

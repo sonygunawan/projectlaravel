@@ -14,4 +14,23 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+    a {
+      color: #999;
+    }
+
+    .current {
+      color: red;
+    }
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+    }
+
+    li {
+      display: inline;
+      margin: 5px 5px;
+    }
+</style>
 @endsection
