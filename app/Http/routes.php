@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('home');
+    return view('product');
 });
 Route::get('eloquent', function() {
 
@@ -27,8 +27,8 @@ Route::get('eloquent', function() {
     });
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-
+//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'ProductController@index');
 Route::get('/product', 'ProductController@index');
 
 Route::get('/addProduct/{productId}', 'CartController@addItem');

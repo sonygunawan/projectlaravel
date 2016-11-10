@@ -14,16 +14,16 @@
                 <fieldset>
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-3 control-label" for="name">Name</label>
+                        <label class="col-md-3 control-label" for="title">Title</label>
                         <div class="col-md-9">
-                            <input id="name" name="name" type="text" placeholder="Product name" class="form-control input-md" required="">
+                            <input id="title" name="title" type="text" placeholder="Product name" class="form-control input-md" required="">
  
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label" for="textarea">Description</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="textarea" name="description"></textarea>
+                            <textarea class="form-control" id="textarea" name="description" placeholder="Description" ></textarea>
                         </div>
                     </div>
                     <div class="form-group">

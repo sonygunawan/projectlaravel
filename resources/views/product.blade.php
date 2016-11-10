@@ -145,7 +145,7 @@
                 
                 //this.handleIt(this.pagination.current_page);
                 this.initiateProduct();
-                alert('ready');
+                //alert('ready');
             },
             computed: {
                 isActived: function () {
