@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title','{{ $product->title }}')
-@section('description','{{ $product->description}}')
+@section('title','Digital Shop Product - '.$product->title )
+@section('description','e-Shop Product - '.$product->description)
 
 @section('content')
 <div class="container">
