@@ -64,7 +64,9 @@ class ProductController extends Controller
     public function ViewDetail($productSlug)
     {
         $product = Product::where('slug',$productSlug)->first();
+        // $title = $product->title;
+        // $description = $product->description;
 
-        return view('product.productdetail', ['product' => $product]);
+        return view('product.productdetail', ['product' => $product] );
     }
 }
