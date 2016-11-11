@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('Digital Shop - List Order', 'Page Title')
+@section('title','Digital Shop - List Order')
+@section('description','e-Shop Order Page')
 
 @section('content')
 

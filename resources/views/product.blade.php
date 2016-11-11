@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('Digital Shop - Product', 'Page Title')
+@section('title','Digital Shop - Home')
+@section('description','e-Shop Home Page')
 
 @section('content')
 <div class="container">
@@ -59,7 +60,9 @@
                             <div class="caption">
                                 <div class="row">
                                     <div class="col-md-6 col-xs-6">
+                                        <a href="/product/@{{ product.slug }}">
                                         <h3>@{{ product.title }}</h3>
+                                        </a>
                                     </div>
                                     <div class="col-md-6 col-xs-6 price">
                                         <h3>

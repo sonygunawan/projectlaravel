@@ -15,6 +15,7 @@
                     <thead>
                     <td>Name</td>
                     <td>Price</td>
+                    <!-- <td>File</td> -->
                     <td>Action</td>
                     <td></td>
                     </thead>
@@ -23,6 +24,7 @@
                         <tr>
                             <td>{{$product->title}}</td>
                             <td>{{$product->price}}$</td>
+                            
                             <td><a href="/admin/product/destroy/{{$product->id}}" 
                                 onclick="return confirm('Want to delete?');"><button class="btn btn-danger">Del</button></a> </td>
                         </tr>

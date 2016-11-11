@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->text('description');
             $table->string('file_id');
+            $table->string('slug');
             $table->timestamps();
         });
     }

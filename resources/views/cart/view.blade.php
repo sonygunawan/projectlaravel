@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('Digital Shop - Cart', 'Page Title')
+@section('title','Digital Shop - Cart')
+@section('description','e-Shop Cart Page')
 
 @section('content')
 <div class="row">

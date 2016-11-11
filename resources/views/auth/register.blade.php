@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title','Digital Shop - Register')
+@section('description','e-Shop Register Page')
+
 @section('content')
 <div class="container">
     <div class="row">

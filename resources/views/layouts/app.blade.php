@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{ url('css/font-awesome.min.css') }}" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
@@ -48,15 +49,23 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    @if (!Auth::guest())
                     <li>
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Admin <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/admin/users') }}">
+                                    Users</a></li>
                                 <li><a href="{{ url('/admin/products') }}">
                                     Products</a></li>
+                                <li><a href="{{ url('/admin/clearcarts') }}">
+                                    Clear Carts</a></li>
+                                <li><a href="{{ url('/admin/orders') }}">
+                                    Orders</a></li>
                             </ul>
                         </li>
+                        @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -74,6 +83,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/message') }}"><i class="fa fa-btn"></i>Pesan</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

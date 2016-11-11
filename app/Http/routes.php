@@ -30,6 +30,7 @@ Route::auth();
 //Route::get('/home', 'HomeController@index');
 Route::get('/home', 'ProductController@index');
 Route::get('/product', 'ProductController@index');
+Route::get('/product/{productSlug}', 'ProductController@ViewDetail');
 
 Route::get('/addProduct/{productId}', 'CartController@addItem');
 Route::get('/removeItem/{productId}', 'CartController@removeItem');

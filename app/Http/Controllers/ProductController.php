@@ -61,4 +61,10 @@ class ProductController extends Controller
         // Return the error message if no keywords existed
         return $error;
     }
+    public function ViewDetail($productSlug)
+    {
+        $product = Product::where('slug',$productSlug)->first();
+
+        return view('product.productdetail', ['product' => $product]);
+    }
 }
