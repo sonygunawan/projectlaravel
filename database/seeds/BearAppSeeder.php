@@ -101,6 +101,7 @@ class BearAppSeeder extends Seeder {
 
         $this->command->info('They are terrorizing picnics!');
 
+        $users = factory(App\Product::class, 50)->create();
     }
 
 }
