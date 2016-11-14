@@ -9,6 +9,7 @@
     margin:0 auto;max-width:605px;
     }
 </style>
+<link rel="stylesheet" type="text/css" href="{{ url('js/sliderengine/amazingslider-1.css') }}">
 <div class="container">
         <div class="row space">
         <div class="col-md-12">
@@ -296,7 +297,8 @@
    
     </script>
     <script src="{{ url('js/sliderengine/jquery.js') }}"></script>
-    <script src="{{ url('js/sliderengine/amazingslider.js') }}"></script>
+    <script src="http://uguru-realestate-us-jun202013.businesscatalyst.com/3d-slider/sliderengine/amazingslider.js"></script>
+    <!-- <script src="{{ url('js/sliderengine/amazingslider.js') }}"></script> -->
     <script src="{{ url('js/sliderengine/initslider-1.js') }}"></script>
 </div>
 @endsection
