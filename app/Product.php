@@ -12,10 +12,14 @@ class Product extends Model
     protected $fillable = array('id','title', 'image', 'price','description','slug');
 	protected $table = 'products';
 
-	
+	public function file()
+    {
+    	return $this->belongsTo('App\File');
+    }
     public function setTitleAttribute($value)
 	{
 	    $this->attributes['title'] = $value;
 	    $this->attributes['slug'] = str_slug($value);
 	}
+
 }

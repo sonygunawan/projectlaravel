@@ -4,6 +4,34 @@
 @section('description','e-Shop Home Page')
 
 @section('content')
+<style type="text/css">
+    .topspace{
+    margin:0 auto;max-width:605px;
+    }
+</style>
+<div class="container">
+        <div class="row space">
+        <div class="col-md-12">
+    <!-- Insert to your webpage where you want to display the slider -->
+    <div id="amazingslider-1" style="display:block;position:relative;margin:16px auto 56px;">
+        <ul class="amazingslider-slides" style="display:none;">
+                <li><img src="images/monochrome2.jpg" alt="monochrome2"  title="monochrome2" />
+                </li>
+                <li><img src="images/ombrecase.jpg" alt="ombrecase"  title="ombrecase" />
+                </li>
+                <li><img src="images/ombrejellycase.jpg" alt="ombrejellycase"  title="ombrejellycase" />
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li><img src="images/monochrome2-tn.jpg" alt="monochrome2" title="monochrome2" /></li>
+                <li><img src="images/ombrecase-tn.jpg" alt="ombrecase" title="ombrecase" /></li>
+                <li><img src="images/ombrejellycase-tn.jpg" alt="ombrejellycase" title="ombrejellycase" /></li>
+            </ul>
+    </div>
+    <!-- End of body section HTML codes -->
+    </div>
+    </div>
+    </div>
 <div class="container">
     <!-- 
     <form v-on:submit.prevent="handleIt(page)"> -->
@@ -267,5 +295,8 @@
 
    
     </script>
+    <script src="{{ url('js/sliderengine/jquery.js') }}"></script>
+    <script src="{{ url('js/sliderengine/amazingslider.js') }}"></script>
+    <script src="{{ url('js/sliderengine/initslider-1.js') }}"></script>
 </div>
 @endsection

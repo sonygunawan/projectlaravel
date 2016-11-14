@@ -64,9 +64,10 @@ class ProductController extends Controller
     public function ViewDetail($productSlug)
     {
         $product = Product::where('slug',$productSlug)->first();
+        $productimage1 = storage_path('app\\'.$product->file->filename);
         // $title = $product->title;
         // $description = $product->description;
 
-        return view('product.productdetail', ['product' => $product] );
+        return view('product.productdetail', ['product' => $product, 'productimage1' => $productimage1] );
     }
 }

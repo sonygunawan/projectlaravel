@@ -10,8 +10,5 @@ class File extends Model
     protected $fillable = array('filename', 'mime', 'original_filename');
 	protected $table = 'files';
 
-	// public function product()
- //    {
- //        return $this->belongsTo('App\Product');
- //    }
+
 }
