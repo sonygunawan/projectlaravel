@@ -81,7 +81,11 @@ Route::get('api/products3', function(){
 });
 Route::get('api/products', 'ProductController@search');
 
+Route::get('admin/orders', 'OrderAdminController@index');
 Route::get('/admin/product/new', 'ProductAdminController@newProduct');
 Route::get('/admin/products', 'ProductAdminController@index');
 Route::get('/admin/product/destroy/{id}', 'ProductAdminController@destroy');
 Route::post('/admin/product/save', 'ProductAdminController@add');
+
+Route::get('admin', ['middleware' => 'admin', 'uses' => 'AdminController@index']);
+Route::controller('/user', 'Auth\AuthController');
