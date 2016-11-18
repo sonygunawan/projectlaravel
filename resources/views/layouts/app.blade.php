@@ -15,7 +15,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- JavaScripts -->
-    
+
     <script src="{{ url('js/efek-salju-faisal.js') }}" type='text/javascript' />
     <script src="{{ url('js/bootstrap.min.js') }}" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
@@ -100,6 +100,5 @@
     @yield('content')
 
     
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>
