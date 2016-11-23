@@ -89,3 +89,14 @@ Route::post('/admin/product/save', 'ProductAdminController@add');
 
 Route::get('admin', ['middleware' => 'admin', 'uses' => 'AdminController@index']);
 Route::controller('/user', 'Auth\AuthController');
+
+Route::get('admin/user', 'admin\UserController@index');
+Route::group(
+    [
+      'prefix' => 'admin', 
+      'namespace' => 'admin', 
+      'middleware' => 'admin'
+    ], function()
+    {
+        Route::resource('user', 'UserController');
+    });

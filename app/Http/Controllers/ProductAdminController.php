@@ -14,8 +14,21 @@ use Illuminate\Support\Facades\File;
 class ProductAdminController extends Controller
 {
     public function index(){
-        $products = Product::all();
-        return view('admin.products',['products' => $products]);
+        if (Auth::user()->is_admin != true) {
+            //return response()->json(['error' => 'Access denied!'], 401);
+            //return view('errors.401');
+
+            // normal 404 view page feedback
+            //return response()->view('errors.missing', [], 401);
+            //return response('Unauthorized.', 401);
+             abort(403);
+            //App::abort(403, 'Access denied');
+        }
+        else
+        {
+            $products = Product::all();
+            return view('admin.products',['products' => $products]);
+        }
     }
  
     public function destroy($id){

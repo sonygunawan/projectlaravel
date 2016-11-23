@@ -15,8 +15,12 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <!-- JavaScripts -->
-
+<!-- 
     <script src="{{ url('js/efek-salju-faisal.js') }}" type='text/javascript' />
+     -->
+    <!-- JavaScripts -->
+    <script src="{{ url('js/jquery.min.js') }}" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
+    
     <script src="{{ url('js/bootstrap.min.js') }}" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
         body {
@@ -59,7 +63,7 @@
                                 Admin <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/admin/users') }}">
+                                <li><a href="{{ url('/admin/user') }}">
                                     Users</a></li>
                                 <li><a href="{{ url('/admin/products') }}">
                                     Products</a></li>
